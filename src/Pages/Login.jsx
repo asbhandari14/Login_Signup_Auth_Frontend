@@ -22,7 +22,7 @@ const Login = ({url}) => {
     }
 
     const handleFormSubmit =async(e) => {
-        e.preventDefault();
+        e.preventDefault(); 
         let err = LoginValidation(loginInfo)
         setError({...err});
 
