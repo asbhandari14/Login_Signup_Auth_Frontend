@@ -1,0 +1,30 @@
+.signupBox{
+    width: 600px;
+}
+
+.loginBox{
+    width: 380px;
+}
+
+
+.small_para_size{
+    font-size: 12px;
+}
+
+
+.spinner {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    border-radius: 50%;
+    animation: spin 2s linear infinite; /* Apply the spin animation */
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg); /* Starting rotation */
+    }
+    100% {
+      transform: rotate(360deg); /* Full rotation */
+    }
+  }
