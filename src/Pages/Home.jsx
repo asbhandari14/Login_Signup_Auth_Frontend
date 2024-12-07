@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({url}) => {
     const navigate = useNavigate();
     const [userData, setUserData] = useState({});
 
@@ -10,7 +10,7 @@ const Home = () => {
 
         try {
             const token = localStorage.getItem('token')
-            const response = await axios.get('http://localhost:8081/auth/home', {
+            const response = await axios.get(`${url}/auth/home`, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }

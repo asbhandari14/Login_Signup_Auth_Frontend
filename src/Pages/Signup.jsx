@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import Signup_Validation from '../Components/SignupValidation';
 import axios from 'axios';
 
-const Signup = () => {
+const Signup = ({url}) => {
     const [signupInfo, setSignupInfo] = useState({
         firstname: "",
         lastname: "",
@@ -40,7 +40,7 @@ const Signup = () => {
         try {
             if(error?.firstname == "" && error?.lastname == "" && error?.email == "" && error?.countryCode == "" && error?.phone == "" && error?.password == "" && error?.confirmPassword == "" && error?.dob == "" && error?.gender == ""){
                 setLoading(true);
-                const response = await axios.post("http://localhost:8081/auth/register", signupInfo, {withCredentials: true, headers: {"Content-Type" : "application/json"}});
+                const response = await axios.post(`${url}/auth/register`, signupInfo, {withCredentials: true, headers: {"Content-Type" : "application/json"}});
                 
                 if(response.data.success){
                     setLoading(false);

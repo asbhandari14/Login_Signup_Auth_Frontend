@@ -6,7 +6,7 @@ import axios from "axios"
 
 
 
-const Login = () => {
+const Login = ({url}) => {
     const [loginInfo, setLoginInfo] = useState({
         email: "",
         password: ""
@@ -30,7 +30,7 @@ const Login = () => {
             if(error?.email == "" && error?.password == ""){
                 console.log(loginInfo);
                 setLoading(true);
-                const response = await axios.post("http://localhost:8081/auth/login", loginInfo, {withCredentials: true, headers: {"Content-Type" : "application/json"}})
+                const response = await axios.post(`${url}/auth/login`, loginInfo, {withCredentials: true, headers: {"Content-Type" : "application/json"}})
 
                 if(response.data.success){
                     window.localStorage.setItem("token", response.data.token)
